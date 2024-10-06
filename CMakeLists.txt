@@ -5,7 +5,10 @@ set(CMAKE_CXX_STANDARD 11)
 set(PYBIND11_PYTHON_VERSION 3.12)
 set(CMAKE_CXX_FLAGS "-O2 -Wall -shared -std=c++2a -fPIC")
 
-find_package(pybind11 REQUIRED)
+# PyBind11
+add_subdirectory(pybind11)
+
+#find_package(pybind11 REQUIRED)
 
 pybind11_add_module(${PROJECT_NAME} app/genai_model.cpp)
 
