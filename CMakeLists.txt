@@ -10,10 +10,12 @@ add_subdirectory(pybind11)
 
 #find_package(pybind11 REQUIRED)
 
-pybind11_add_module(${PROJECT_NAME} app/genai_model.cpp)
+#pybind11_add_module(${PROJECT_NAME} app/genai_model.cpp)
 
-target_compile_definitions(${PROJECT_NAME} PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
-target_include_directories(${PROJECT_NAME} PRIVATE ${PYBIND11_INCLUDE_DIRS})
+pybind11_add_module(genai_model genai_model.cpp)
+
+#target_compile_definitions(${PROJECT_NAME} PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
+#target_include_directories(${PROJECT_NAME} PRIVATE ${PYBIND11_INCLUDE_DIRS})
 
 #g++ -O3 -Wall -shared -std=c++2a -fPIC $(python3.12 -m pybind11 --includes) genai_model.cpp -o genai_model$(python3.12-config --extension-suffix)
 #c++ -O3 -Wall -shared -std=c++20 -fPIC $(python3.12 -m pybind11 --includes) genai_model.cpp -o genai_model$(python3.12-config --extension-suffix)
