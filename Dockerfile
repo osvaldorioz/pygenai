@@ -20,6 +20,7 @@ COPY . .
 # Compilar la biblioteca de C++ con Pybind11
 #RUN python setup.py build_ext --inplace
 #RUN c++ -O3 -Wall -shared -std=c++20 -fPIC $(python3.12 -m pybind11 --includes) app/genai_model.cpp -o genai_model$(python3.12-config --extension-suffix)
+WORKDIR /app
 RUN cmake .
 RUN make
 
